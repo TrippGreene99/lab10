@@ -1,0 +1,82 @@
+import java.util.*;
+
+
+public class Main{
+    
+    public static String repeatNtimes(String str, int num){
+
+        if(num>0){
+            
+            return str + repeatNtimes(str,num-1);
+
+        }
+
+        return "";
+
+    }
+    
+  
+    public static boolean isReverse(String s1, String s2) {
+
+    if (s1 == null || s2 == null || s1.length() == 1 || s2.length() == 1) {
+
+        return true;
+
+    }
+
+    else if (s1.length() != s2.length()) {
+
+        return false;
+
+    }
+
+    else {
+
+       
+      char s1_first_char = s1.charAt(0);
+      char s2_last_char = s2.charAt(s2.length() - 1);
+
+     
+      if (s1_first_char == s2_last_char){
+
+            String s_1 = s1.substring(1);
+
+            String s_2 = s2.substring(0, s2.length() - 1);
+
+            return isReverse(s_1, s_2);
+
+        }
+
+        else{
+
+            return false;
+
+        } 
+    }
+}
+
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            
+            
+            System.out.println(repeatNtimes("I must study recursion until it makes sense\n",100));
+            System.out.println("Enter the first string");
+            String s1 = sc.nextLine();
+            System.out.println("Enter the second string");
+            String s2 = sc.nextLine();
+            
+            if(isReverse(s1,s2)){
+
+                System.out.println(s1+" is the reverse of "+s2);
+
+            }
+            else{
+
+                System.out.println(s1+" is not the reverse of "+s2);
+
+            }
+        }
+
+        
+}
